@@ -44,7 +44,6 @@ jobs:
       - name: Check and Lint
         run: |
           cargo clippy --no-deps --tests -- -D warnings
-
       - name: Start Redis for Testing
         uses: supercharge/redis-github-action@1.5.0
 
@@ -52,9 +51,6 @@ jobs:
         uses: supercharge/mongodb-github-action@1.10.0
         with:
           mongodb-version: latest
-
-        # TODO: Add Setup Database Script
-
       - name: Test with Coverage
         env:
           TEST_CONFIG_BASE64_TOML: ${{ secrets.TEST_CONFIG_BASE64_TOML }}
