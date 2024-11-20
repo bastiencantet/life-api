@@ -16,6 +16,6 @@ RUN cargo build --release --bin life-is-a-highway
 # We do not need the Rust toolchain to run the binary!
 FROM debian:12.5-slim AS runtime
 WORKDIR /app
-COPY --from=builder /app/target/release/life-api /usr/local/bin
+COPY --from=builder /app/target/release/life-is-a-highway /usr/local/bin
 RUN apt-get update && apt-get install -y libssl-dev ca-certificates
 ENTRYPOINT ["/usr/local/bin/life-is-a-highway"]
